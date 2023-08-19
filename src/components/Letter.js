@@ -1,8 +1,9 @@
 import React from 'react'
 
 function Letter({letterPos, attemptValue}) {
+  const letter = Guessboard[attemptValue][letterPos]
   return (
-    <div>Letter</div>
+    <div className='letter'> {letter} </div>
   )
 }
 

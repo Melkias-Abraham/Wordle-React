@@ -1,8 +1,9 @@
 import React from 'react'
 import { boardDefault } from '../Words'
+import Letter from './Letter';
 
 function GuessBoard() {
-  const [board, setBoard] = useState(boardDefault);
+
   return (
     <div className='Guessboard'>
       <div className='row'>
@@ -40,11 +41,15 @@ function GuessBoard() {
         <Letter letterPos={3} attemptValue={4} />
         <Letter letterPos={4} attemptValue={4} />
       </div>
-      <div className='row'></div>
-
+      <div className='row'>
+        <Letter letterPos={0} attemptValue={5} />
+        <Letter letterPos={1} attemptValue={5} />
+        <Letter letterPos={2} attemptValue={5} />
+        <Letter letterPos={3} attemptValue={5} />
+        <Letter letterPos={4} attemptValue={5} />
+      </div>
     </div>
   )
 }
-import Letter from './Letter';
 
 export default GuessBoard
