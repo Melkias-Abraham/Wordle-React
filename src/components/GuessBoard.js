@@ -1,5 +1,4 @@
 import React from 'react'
-import { boardDefault } from '../Words'
 import Letter from './Letter';
 
 function GuessBoard() {
