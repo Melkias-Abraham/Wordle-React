@@ -2,9 +2,8 @@ import React from 'react'
 import Letter from './Letter';
 
 function GuessBoard() {
-
   return (
-    <div className='Guessboard'>
+    <div className='board'>
       <div className='row'>
         <Letter letterPos={0} attemptValue={0} />
         <Letter letterPos={1} attemptValue={0} />
