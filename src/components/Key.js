@@ -3,7 +3,7 @@ import React from 'react'
 
 function Key( {keyVal} ) {
   return (
-    <div className='key'> { keyVal }</div>
+    <div className='key'> {keyVal}</div>
   )
 }
 
