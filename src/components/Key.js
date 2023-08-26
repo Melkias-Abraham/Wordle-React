@@ -1,14 +1,24 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../App";
 
 function Key({ keyVal, bigKey }) {
-  const { board, setBoard, currentAttempt, setCurrentAttempt } = useContext(AppContext)
+  const { board, setBoard, currentAttempt, setCurrentAttempt } =
+    useContext(AppContext);
 
   const seletLetter = () => {
-    const newBoard = [...board]
-    newBoard[currentAttempt.attempt][currentAttempt.letterPos] = keyVal
-    setBoard(newBoard)
-    setCurrentAttempt({ ...currentAttempt, letterPos: currentAttempt.letterPos + 1})
+    if (keyVal === "ENTER") {
+      if (currentAttempt.letterPos !== 5) return;
+      setCurrentAttempt({ attempt: currentAttempt.attempt + 1, letterPos: 0})
+    } else {
+      if (currentAttempt.letterPos > 4) return;
+      const newBoard = [...board];
+      newBoard[currentAttempt.attempt][currentAttempt.letterPos] = keyVal;
+      setBoard(newBoard);
+      setCurrentAttempt({
+        ...currentAttempt,
+        letterPos: currentAttempt.letterPos + 1,
+      });
+    }
   };
 
   return (
