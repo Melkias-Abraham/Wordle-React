@@ -13,6 +13,8 @@ function App() {
     letterPos: 0,
   });
 
+  const correctWord = "RIGHT"
+
   const onSelectLetter = (keyVal) => {
     if (currentAttempt.letterPos > 4) return;
     const newBoard = [...board];
@@ -46,7 +48,7 @@ function App() {
         <h1>Wordle</h1>
       </nav>
       <AppContext.Provider
-        value={{ board, setBoard, currentAttempt, setCurrentAttempt, onDelete, onEnter, onSelectLetter  }}
+        value={{ board, setBoard, currentAttempt, setCurrentAttempt, onDelete, onEnter, onSelectLetter, correctWord  }}
       >
         <div className="game">
           <GuessBoard />
