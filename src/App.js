@@ -13,6 +13,7 @@ function App() {
     letterPos: 0,
   });
   const [wordSet, setWordSet] = useState(new Set());
+  const [wrongLetters, setWrongLetters] = useState([])
 
   const correctWord = "RIGHT";
 
@@ -20,7 +21,7 @@ function App() {
     generateWordSet().then((words) => {
       setWordSet(words.wordSet);
     });
-  });
+  }, []);
 
   const onSelectLetter = (keyVal) => {
     if (currentAttempt.letterPos > 4) return;
@@ -57,6 +58,10 @@ function App() {
     } else {
       alert("Word not found");
     }
+
+    if (currentWord === correctWord) {
+      alert("Bitch you guess it")
+    }
   };
 
   return (
@@ -74,6 +79,8 @@ function App() {
           onEnter,
           onSelectLetter,
           correctWord,
+          wrongLetters,
+          setWrongLetters
         }}
       >
         <div className="game">
