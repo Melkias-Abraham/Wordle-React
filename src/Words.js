@@ -9,7 +9,7 @@ export const boardDefault = [
   ["", "", "", "", ""],
 ];
 
-const generateWordSet = async () => {
+ export const generateWordSet = async () => {
   let wordSet;
   await fetch(wordBank)
     .then((response) => response.text())
@@ -18,5 +18,5 @@ const generateWordSet = async () => {
       wordSet = new Set(wordArray);
     });
 
-  return wordSet
+  return { wordSet }
 };
