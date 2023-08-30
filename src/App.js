@@ -1,6 +1,7 @@
 import "./App.css";
 import GuessBoard from "./components/GuessBoard";
 import KeyBoard from "./components/KeyBoard";
+import GameOver from "./components/GameOver";
 import { createContext, useEffect, useState } from "react";
 import { boardDefault, generateWordSet } from "./Words";
 
@@ -64,7 +65,12 @@ function App() {
     }
 
     if (currentWord === correctWord) {
-      alert("Bitch you guess it")
+      setGameOver({gameOver: true, guessedWord: true})
+      return
+    }
+
+    if (currentAttempt.attempt === 5) {
+      setGameOver({gameOver: true, guessedWord: false})
     }
   };
 
@@ -84,12 +90,14 @@ function App() {
           onSelectLetter,
           correctWord,
           wrongLetters,
-          setWrongLetters
+          setWrongLetters,
+          gameOver,
+          setGameOver
         }}
       >
         <div className="game">
           <GuessBoard />
-          <KeyBoard />
+          {gameOver.gameOver ? <GameOver/> : <KeyBoard />}
         </div>
       </AppContext.Provider>
     </div>
