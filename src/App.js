@@ -13,7 +13,11 @@ function App() {
     letterPos: 0,
   });
   const [wordSet, setWordSet] = useState(new Set());
-  const [wrongLetters, setWrongLetters] = useState([])
+  const [wrongLetters, setWrongLetters] = useState([]);
+  const [gameOver, setGameOver] = useState({
+    gameOver: false,
+    guessedWord: false,
+  });
 
   const correctWord = "RIGHT";
 
