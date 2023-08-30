@@ -9,6 +9,7 @@ export const AppContext = createContext();
 
 function App() {
   const [board, setBoard] = useState(boardDefault);
+  const [correctWord, setCorrectWord] = useState("")
   const [currentAttempt, setCurrentAttempt] = useState({
     attempt: 0,
     letterPos: 0,
@@ -20,11 +21,12 @@ function App() {
     guessedWord: false,
   });
 
-  const correctWord = "RIGHT";
+
 
   useEffect(() => {
     generateWordSet().then((words) => {
       setWordSet(words.wordSet);
+      setCorrectWord(words.todaysWord)
     });
   }, []);
 
